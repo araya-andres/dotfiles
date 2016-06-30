@@ -1,0 +1,15 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Andres Araya
+	email = araya.andres@gmail.com
+[core]
+	autocrlf = input
+[pull]
+	rebase = true
+[rerere]
+	enabled = true
+[alias]
+	s = status -s
+	lg = log --oneline --decorate --graph
+[push]
+	default = simple

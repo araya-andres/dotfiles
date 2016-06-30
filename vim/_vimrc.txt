@@ -1,0 +1,122 @@
+filetype plugin indent on
+set nocompatible
+
+set diffopt=vertical
+set encoding=utf-8
+set hidden
+set history=200
+
+" line options
+set cursorline
+set nowrap
+set number
+set relativenumber
+set textwidth=60
+
+" tap options
+set expandtab
+set shiftwidth=4
+set tabstop=4
+
+" search options
+set hlsearch
+set incsearch
+
+call pathogen#infect()
+
+" solarized
+set background=dark
+colorscheme solarized
+let g:solarized_bold      = 0
+let g:solarized_underline = 0
+let g:solarized_italic    = 0
+
+syntax enable
+
+autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+
+" quickfix
+let g:quickfix_is_open = 0
+
+function! CloseQuickfix()
+    cclose
+    let g:quickfix_is_open = 0
+endfunction
+
+function! OpenQuickfix()
+    botright cwindow
+    let g:quickfix_is_open = 1
+endfunction
+
+function! QuickfixToggle()
+    if g:quickfix_is_open
+        call CloseQuickfix()
+    else
+        call OpenQuickfix()
+    endif
+endfunction
+
+
+" cscope
+if has('cscope')
+    set cscopetag
+    if filereadable("cscope.out")
+        cscope add cscope.out
+    elseif $CSCOPE_DB != ""
+        cscope add $CSCOPE_DB
+    endif
+    if has('quickfix')
+        set cscopequickfix=s-,c-,d-,i-,t-,e-
+        nnoremap <silent> <leader>c :cscope find c <C-r><C-w><CR><C-o>:call OpenQuickfix()<CR>
+        nnoremap <silent> <leader>f :cscope find s <C-r><C-w><CR><C-o>:call OpenQuickfix()<CR>
+    endif
+endif
+
+autocmd BufEnter * silent! lcd %:p:h
+
+" mappings
+nnoremap <silent> <leader>g :grep <C-R><C-W> "%"<CR><CR><CR>:call OpenQuickfix()<CR>
+nnoremap <silent> <leader>h :set hlsearch!<CR>
+nnoremap <silent> <leader>n :NERDTreeToggle<CR>
+nnoremap <silent> <leader>q :call QuickfixToggle()<CR>
+nnoremap <silent> <leader>t :TagbarToggle<CR>
+
+let $VIMHOME = $HOME . '/.config/vim'
+
+"============================================================================
+" Make :help appear in a full-screen tab, instead of a window
+"============================================================================
+
+    "Only apply to .txt files...
+    augroup HelpInTabs
+        autocmd!
+        autocmd BufEnter  *.txt   call HelpInNewTab()
+    augroup END
+
+    "Only apply to help files...
+    function! HelpInNewTab ()
+        if &buftype == 'help'
+            "Convert the help window to a tab...
+            execute "normal \<C-W>T"
+        endif
+    endfunction
+
+match ErrorMsg /\%>75v.\+/
+
+if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+    set clipboard+=unnamedplus
+    tnoremap <Esc> <C-\><C-n>
+    " tnoremap <A-h> <C-\><C-n><C-w>h
+    " tnoremap <A-j> <C-\><C-n><C-w>j
+    " tnoremap <A-k> <C-\><C-n><C-w>k
+    " tnoremap <A-l> <C-\><C-n><C-w>l
+    " nnoremap <A-h> <C-w>h
+    " nnoremap <A-j> <C-w>j
+    " nnoremap <A-k> <C-w>k
+    " nnoremap <A-l> <C-w>l
+endif
+

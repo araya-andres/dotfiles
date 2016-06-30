@@ -1,0 +1,25 @@
+type nvim >/dev/null 2>&1 && alias vi=nvim || alias vi=vim
+export HISTCONTROL=ignoreboth:erasedups
+export FONTCONFIG_PATH=/opt/X11/lib/X11/fontconfig
+export EDITOR=vi
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+set -o vi
+bind -m vi-insert "\C-l":clear-screen
+
+export TERM=screen-256color
+
+function tat {
+    local no_sessions=$(tmux ls | wc -l)
+    local sessions=$(tmux ls | cut -d: -f1)
+    local session=''
+    if [ $no_sessions -eq 1 ]; then
+        session=$sessions
+    else
+        select session in $sessions; do
+            break
+        done
+    fi
+    tmux at -t $session
+}
