@@ -10,7 +10,7 @@ bind -m vi-insert "\C-l":clear-screen
 
 export TERM=screen-256color
 
-function tat {
+function tmux-at {
     local no_sessions=$(tmux ls | wc -l)
     local sessions=$(tmux ls | cut -d: -f1)
     local session=''
