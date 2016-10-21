@@ -4,6 +4,7 @@
 	email = araya.andres@gmail.com
 [core]
 	autocrlf = input
+	editor = nvim
 [pull]
 	rebase = true
 [rerere]
