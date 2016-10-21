@@ -74,7 +74,6 @@ endif
 
 " mappings
 nnoremap <silent> <leader>g :grep <C-R><C-W> "%"<CR><CR><CR>:call OpenQuickfix()<CR>
-nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <leader>q :call QuickfixToggle()<CR>
 nnoremap <silent> <leader>t :TagbarToggle<CR>
 nnoremap <silent> <F5> :call DeleteTrailingWhitespace()<CR>
@@ -104,16 +103,13 @@ set clipboard+=unnamedplus
 tnoremap <Esc> <C-\><C-n>
 
 call plug#begin()
-" Plug 'altercation/vim-colors-solarized'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
-Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'   , { 'on': 'Tabularize' }
 Plug 'https://github.com/cohama/lexima.vim'
 Plug 'https://github.com/derekwyatt/vim-scala'
-Plug 'https://github.com/idanarye/vim-smile'
 Plug 'https://github.com/vim-ruby/vim-ruby'
 Plug 'https://github.com/vim-ruby/vim-ruby.git'
 Plug 'kien/ctrlp.vim'
@@ -128,7 +124,6 @@ Plug 'vim-scripts/a.vim'
 call plug#end()
 
 colorscheme PaperColor
-" colorscheme Tomorrow-Night-Bright
 set background=dark
 
 " rainbow
