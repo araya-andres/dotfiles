@@ -110,16 +110,16 @@ Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'   , { 'on': 'Tabularize' }
 Plug 'https://github.com/cohama/lexima.vim'
 Plug 'https://github.com/derekwyatt/vim-scala'
-Plug 'https://github.com/vim-ruby/vim-ruby'
-Plug 'https://github.com/vim-ruby/vim-ruby.git'
 Plug 'kien/ctrlp.vim'
 Plug 'luochen1990/rainbow'
 Plug 'majutsushi/tagbar'   , { 'on': 'TagbarToggle' }
+Plug 'metakirby5/codi.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/a.vim'
 call plug#end()
 
@@ -134,3 +134,10 @@ nmap <leader>l :set list!<CR>
 
 " Use the same symbols as TextMate for tabstops and EOLs<Paste>
 set listchars=tab:▸\ ,eol:¬
+
+let g:codi#interpreters = {
+                   \ 'R': {
+                       \ 'bin': 'R',
+                       \ 'prompt': '^> ',
+                       \ },
+                   \ }
