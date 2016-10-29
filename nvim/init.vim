@@ -103,8 +103,8 @@ set clipboard+=unnamedplus
 tnoremap <Esc> <C-\><C-n>
 
 call plug#begin()
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
+Plug 'araya-andres/papercolor-theme'
 Plug 'benekastah/neomake'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'   , { 'on': 'Tabularize' }
