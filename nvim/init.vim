@@ -111,15 +111,19 @@ Plug 'godlygeek/tabular'   , { 'on': 'Tabularize' }
 Plug 'https://github.com/cohama/lexima.vim'
 Plug 'https://github.com/derekwyatt/vim-scala'
 Plug 'kien/ctrlp.vim'
+Plug 'kshenoy/vim-signature'
 Plug 'luochen1990/rainbow'
 Plug 'majutsushi/tagbar'   , { 'on': 'TagbarToggle' }
 Plug 'metakirby5/codi.vim'
+Plug 'sjl/clam.vim'
+Plug 'timakro/vim-searchant'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/SearchComplete'
 Plug 'vim-scripts/a.vim'
 call plug#end()
 
