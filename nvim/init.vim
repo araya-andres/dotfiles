@@ -78,6 +78,8 @@ nnoremap <silent> <leader>q :call QuickfixToggle()<CR>
 nnoremap <silent> <leader>t :TagbarToggle<CR>
 nnoremap <silent> <F5> :call DeleteTrailingWhitespace()<CR>
 nnoremap <BS> :nohlsearch<CR>
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 "============================================================================
 " Make :help appear in a full-screen tab, instead of a window
