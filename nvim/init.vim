@@ -141,6 +141,9 @@ nmap <leader>l :set list!<CR>
 " Use the same symbols as TextMate for tabstops and EOLs<Paste>
 set listchars=tab:▸\ ,eol:¬
 
+" Improve the display of wrapped lines
+set showbreak=↪
+
 let g:codi#interpreters = {
                    \ 'R': {
                        \ 'bin': 'R',
