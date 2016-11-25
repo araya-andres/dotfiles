@@ -117,8 +117,6 @@ Plug 'kshenoy/vim-signature'
 Plug 'luochen1990/rainbow'
 Plug 'majutsushi/tagbar'   , { 'on': 'TagbarToggle' }
 Plug 'metakirby5/codi.vim'
-Plug 'sjl/clam.vim'
-Plug 'timakro/vim-searchant'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
