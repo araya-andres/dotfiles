@@ -73,11 +73,13 @@ if has('cscope')
 endif
 
 " mappings
+nnoremap <silent> <BS> :nohlsearch<CR>
+nnoremap <silent> <C-b> :CtrlPBuffer<CR>
+nnoremap <silent> <F5> :call DeleteTrailingWhitespace()<CR>
 nnoremap <silent> <leader>g :grep <C-R><C-W> "%"<CR><CR><CR>:call OpenQuickfix()<CR>
+nnoremap <silent> <leader>l :set list!<CR>
 nnoremap <silent> <leader>q :call QuickfixToggle()<CR>
 nnoremap <silent> <leader>t :TagbarToggle<CR>
-nnoremap <silent> <F5> :call DeleteTrailingWhitespace()<CR>
-nnoremap <BS> :nohlsearch<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
@@ -132,9 +134,6 @@ set background=dark
 
 " rainbow
 let g:rainbow_active      = 1
-
-" Shortcut to rapidly toggle `set list`
-nmap <leader>l :set list!<CR>
 
 " Use the same symbols as TextMate for tabstops and EOLs<Paste>
 set listchars=tab:▸\ ,eol:¬
