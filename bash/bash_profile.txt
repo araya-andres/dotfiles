@@ -1,4 +1,4 @@
-alias ll='ls -l --color'
+alias ll='ls -l'
 type nvim >/dev/null 2>&1 && alias vi=nvim || alias vi=vim
 export HISTCONTROL=ignoreboth:erasedups
 export FONTCONFIG_PATH=/opt/X11/lib/X11/fontconfig
