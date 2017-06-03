@@ -94,24 +94,22 @@ vnoremap K :m '<-2<CR>gv=gv
 " Make :help appear in a full-screen tab, instead of a window
 "============================================================================
 
-    "Only apply to .txt files...
-    augroup HelpInTabs
-        autocmd!
-        autocmd BufEnter  *.txt   call HelpInNewTab()
-    augroup END
+"Only apply to .txt files...
+augroup HelpInTabs
+    autocmd!
+    autocmd BufEnter *.txt call HelpInNewTab()
+augroup END
 
-    "Only apply to help files...
-    function! HelpInNewTab ()
-        if &buftype == 'help'
-            "Convert the help window to a tab...
-            execute "normal \<C-W>T"
-        endif
-    endfunction
+"Only apply to help files...
+function! HelpInNewTab ()
+    if &buftype == 'help'
+        "Convert the help window to a tab...
+        execute "normal \<C-W>T"
+    endif
+endfunction
 
 " neovim
 set clipboard+=unnamedplus
-
-tnoremap <Esc> <C-\><C-n>
 
 call plug#begin()
 Plug 'airblade/vim-gitgutter'
@@ -156,10 +154,3 @@ let g:codi#interpreters = {
                        \ 'prompt': '^> ',
                        \ },
                    \ }
-
-" NERDtree like setup - :Ve
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
