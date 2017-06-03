@@ -6,10 +6,11 @@ export EDITOR=vi
 export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export TERM=screen-256color
+export OF_ROOT=/Volumes/Transcend/Sandbox/of/
+
 set -o vi
 bind -m vi-insert "\C-l":clear-screen
-
-export TERM=screen-256color
 
 function codi {
   local syntax="${1:-python}"
@@ -36,3 +37,26 @@ function tmux-at {
     fi
     tmux at -t $session
 }
+
+function of-new-project {
+    local target=$OF_ROOT/apps/myApps/$1
+    cp -r $OF_ROOT/apps/myApps/emptyExample $target
+    cd $target
+    rm -rf emptyExample.xcodeproj/
+    printf "bin\nobj\n.gitignore\n" >> .gitignore
+    git init
+    git add .
+    git commit -m 'initial commit'
+}
+
+function of-clean-all {
+    local owd=$PWD
+    cd $OF_ROOT/apps/myApps/
+    for i in *; do
+        echo "Cleaning $i..."
+        cd $i
+        make clean
+        cd ..
+    done
+    cd $owd
+ }
