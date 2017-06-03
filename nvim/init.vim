@@ -11,6 +11,9 @@ set textwidth=75
 match ErrorMsg /\%>75v.\+/
 match ErrorMsg /\s\s*$/
 
+set splitbelow
+set splitright
+
 " tap options
 set expandtab shiftwidth=4 tabstop=4
 
@@ -73,6 +76,10 @@ if has('cscope')
 endif
 
 " mappings
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
 nnoremap <silent> <BS> :nohlsearch<CR>
 nnoremap <silent> <C-b> :CtrlPBuffer<CR>
 nnoremap <silent> <F5> :call DeleteTrailingWhitespace()<CR>
@@ -127,6 +134,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/SearchComplete'
 Plug 'vim-scripts/a.vim'
+Plug 'vim-scripts/argtextobj.vim'
+Plug 'vim-scripts/camelcasemotion'
 call plug#end()
 
 colorscheme PaperColor
