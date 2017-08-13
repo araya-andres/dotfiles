@@ -17,7 +17,7 @@ ln -s $PATH_TO_CONFIG_FILES/octave/octaverc.txt .octaverc
 
 # tmux
 rm .tmux.conf
-ln -s $PATH_TO_CONFIG_FILES/tmux/tmux_conf.txt .tmux.conf
+ln -s $PATH_TO_CONFIG_FILES/tmux/tmux.conf .tmux.conf
 
 # nvim
 mkdir .vim_undo_dir
