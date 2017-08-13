@@ -8,57 +8,7 @@ export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export TERM=screen-256color
-export OF_ROOT=/Volumes/Transcend/Sandbox/of/
 export PS1='\W $ '
 
 set -o vi
 bind -m vi-insert "\C-l":clear-screen
-
-function codi {
-  local syntax="${1:-python}"
-  shift
-  nvim -c \
-    "let g:startify_disable_at_vimenter = 1 |\
-    set bt=nofile ls=0 noru nonu nornu |\
-    hi ColorColumn ctermbg=NONE |\
-    hi VertSplit ctermbg=NONE |\
-    hi NonText ctermfg=0 |\
-    Codi $syntax" "$@"
-}
-
-function tmux-at {
-    local no_sessions=$(tmux ls | wc -l)
-    local sessions=$(tmux ls | cut -d: -f1)
-    local session=''
-    if [ $no_sessions -eq 1 ]; then
-        session=$sessions
-    else
-        select session in $sessions; do
-            break
-        done
-    fi
-    tmux at -t $session
-}
-
-function of-new-project {
-    local target=$OF_ROOT/apps/myApps/$1
-    cp -r $OF_ROOT/apps/myApps/emptyExample $target
-    cd $target
-    rm -rf emptyExample.xcodeproj/
-    printf "bin\nobj\n.gitignore\n" >> .gitignore
-    git init
-    git add .
-    git commit -m 'initial commit'
-}
-
-function of-clean-all {
-    local owd=$PWD
-    cd $OF_ROOT/apps/myApps/
-    for i in *; do
-        echo "Cleaning $i..."
-        cd $i
-        make clean
-        cd ..
-    done
-    cd $owd
- }
