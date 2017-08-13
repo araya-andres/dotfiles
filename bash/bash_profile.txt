@@ -2,12 +2,13 @@ alias ll='ls -l'
 type nvim >/dev/null 2>&1 && alias vi=nvim || alias vi=vim
 export HISTCONTROL=ignoreboth:erasedups
 export FONTCONFIG_PATH=/opt/X11/lib/X11/fontconfig
-export EDITOR=vi
+export EDITOR="nvim -c 'set tw=0'"
 export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export TERM=screen-256color
 export OF_ROOT=/Volumes/Transcend/Sandbox/of/
+export PS1='\W $ '
 
 set -o vi
 bind -m vi-insert "\C-l":clear-screen
