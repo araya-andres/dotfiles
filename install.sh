@@ -1,11 +1,10 @@
 #!/bin/bash
-PATH_TO_CONFIG_FILES=$1
-if [ -z "$PATH_TO_CONFIG_FILES" ]; then PATH_TO_CONFIG_FILES=$PWD; fi
-PREV_DIR=$PWD
+PATH_TO_CONFIG_FILES=${1-$PWD}
 cd
 
 # bash
-echo "[ -f $PATH_TO_CONFIG_FILES/bash/bash_profile ] && source $PATH_TO_CONFIG_FILES/bash/bash_profile" >> ~/.bash_profile
+BASH_PROFILE=$PATH_TO_CONFIG_FILES/bash/bash_profile
+echo "[ -f $BASH_PROFILE ] && source $BASH_PROFILE" >> ~/.bash_profile
 
 # git
 rm .gitconfig
@@ -24,5 +23,3 @@ mkdir .vim_undo_dir
 mkdir .config
 cd .config
 ln -s $PATH_TO_CONFIG_FILES/nvim
-
-cd $PREV_DIR
