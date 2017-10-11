@@ -1,15 +1,15 @@
 function! MakeHeader()
     0 put =expand('%:t')
-    s/\./_/g
-    normal VgUYP
+    silent s/\./_/
+    silent s/[A-Z]/_&/g
+    normal xVgUYP
     normal I#ifndef 
     normal j
     normal I#define 
     normal o
     normal o
-    normal o
     normal o#endif
-    normal jdd2k
+    normal jddk
 endfunction
 
 function! CreateEmptyClass()
@@ -17,13 +17,39 @@ function! CreateEmptyClass()
     let b:lexima_disabled = 1
     normal k
     put =expand('%:t:r')
-    normal Istruct 
+    normal YIstruct 
     normal o{
-    normal j
-    normal o};
-    normal k
+    normal <<2pA();
+    normal >>jI~
+    normal >>A();
+    normal o
+    normal oprivate:
+    normal <<o};
+    normal k0
     let b:lexima_disabled = 0
 endfunction
 
-autocmd BufNewFile *.h call MakeHeader()
-autocmd BufNewFile *.hpp call CreateEmptyClass()
+function! CreateEmptyCPlusPlusFile()
+    let b:lexima_disabled = 1
+    0 put =expand('%:t:r')
+    normal Di#include ".h"
+    normal Bpjo::
+    normal p^PA()
+    normal o{
+    normal o}
+    normal {yGP}jwwi~
+    normal 3k
+    let b:lexima_disabled = 0
+endfunction
+
+function! CreateConstructor()
+    normal yPgvJ$x^
+    silent s/;/,/g
+    normal D
+    -1 put =expand('%:t:r')
+    normal A()
+    normal P
+endfunction
+
+autocmd BufNewFile *.h,*.hpp call CreateEmptyClass()
+autocmd BufNewFile *.cc,*.cpp call CreateEmptyCPlusPlusFile()

@@ -87,8 +87,6 @@ nnoremap <silent> <leader>g :grep <C-R><C-W> "%"<CR><CR><CR>:call OpenQuickfix()
 nnoremap <silent> <leader>l :set list!<CR>
 nnoremap <silent> <leader>q :call QuickfixToggle()<CR>
 nnoremap <silent> <leader>t :TagbarToggle<CR>
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
 
 "============================================================================
 " Make :help appear in a full-screen tab, instead of a window
