@@ -121,6 +121,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'luochen1990/rainbow'
 Plug 'majutsushi/tagbar'   , { 'on': 'TagbarToggle' }
+Plug 'mechatroner/rainbow_csv'
 Plug 'metakirby5/codi.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
