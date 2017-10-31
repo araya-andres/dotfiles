@@ -17,14 +17,20 @@ function! CreateEmptyClass()
     let b:lexima_disabled = 1
     normal k
     put =expand('%:t:r')
-    normal YIstruct 
+    normal YIclass 
     normal o{
-    normal <<2pA();
-    normal >>jI~
-    normal >>A();
+    normal opublic:
+    normal <<
+    normal 2p
+    normal A();
+    normal >j
+    normal j
+    normal Ivirtual ~
+    normal A() = default;
     normal o
     normal oprivate:
-    normal <<o};
+    normal <<
+    normal o};
     normal k0
     let b:lexima_disabled = 0
 endfunction
