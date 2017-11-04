@@ -25,33 +25,6 @@ if has('persistent_undo')
     set undofile
 end
 
-autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
-" quickfix
-let g:quickfix_is_open = 0
-
-function! CloseQuickfix()
-    cclose
-    let g:quickfix_is_open = 0
-endfunction
-
-function! OpenQuickfix()
-    botright cwindow
-    setlocal wrap
-    let g:quickfix_is_open = 1
-endfunction
-
-function! QuickfixToggle()
-    if g:quickfix_is_open
-        call CloseQuickfix()
-    else
-        call OpenQuickfix()
-    endif
-endfunction
-
 function! DeleteTrailingWhitespace()
     normal ma
     let _s=@/
@@ -60,96 +33,43 @@ function! DeleteTrailingWhitespace()
     normal `a
 endfunction
 
-" cscope
-if has('cscope')
-    set cscopetag
-    if filereadable("cscope.out")
-        cscope add cscope.out
-    elseif $CSCOPE_DB != ""
-        cscope add $CSCOPE_DB
-    endif
-    if has('quickfix')
-        set cscopequickfix=s-,c-,d-,i-,t-,e-
-        nnoremap <silent> <leader>c :cscope find c <C-r><C-w><CR><C-o>:call OpenQuickfix()<CR>
-        nnoremap <silent> <leader>f :cscope find s <C-r><C-w><CR><C-o>:call OpenQuickfix()<CR>
-    endif
-endif
-
-" mappings
-nnoremap <C-h> <C-w><C-h>
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-l> <C-w><C-l>
 nnoremap <silent> <BS> :nohlsearch<CR>
-nnoremap <silent> <C-b> :CtrlPBuffer<CR>
 nnoremap <silent> <F5> :call DeleteTrailingWhitespace()<CR>
-nnoremap <silent> <leader>g :grep <C-R><C-W> "%"<CR><CR><CR>:call OpenQuickfix()<CR>
 nnoremap <silent> <leader>l :set list!<CR>
-nnoremap <silent> <leader>q :call QuickfixToggle()<CR>
-nnoremap <silent> <leader>t :TagbarToggle<CR>
 
-"============================================================================
-" Make :help appear in a full-screen tab, instead of a window
-"============================================================================
+packadd minpac
+call minpac#init()
 
-"Only apply to .txt files...
-augroup HelpInTabs
-    autocmd!
-    autocmd BufEnter *.txt call HelpInNewTab()
-augroup END
+call minpac#add('airblade/vim-gitgutter')
+call minpac#add('araya-andres/papercolor-theme')
+call minpac#add('benekastah/neomake')
+call minpac#add('ervandew/supertab')
+call minpac#add('godlygeek/tabular', {'type': 'opt'})
+call minpac#add('https://github.com/cohama/lexima.vim')
+call minpac#add('junegunn/fzf')
+call minpac#add('luochen1990/rainbow')
+call minpac#add('majutsushi/tagbar', {'type': 'opt'})
+call minpac#add('mechatroner/rainbow_csv')
+call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-repeat')
+call minpac#add('tpope/vim-surround')
+call minpac#add('tpope/vim-unimpaired')
 
-"Only apply to help files...
-function! HelpInNewTab ()
-    if &buftype == 'help'
-        "Convert the help window to a tab...
-        execute "normal \<C-W>T"
-    endif
-endfunction
-
-" neovim
-set clipboard+=unnamedplus
-
-call plug#begin()
-Plug 'airblade/vim-gitgutter'
-Plug 'araya-andres/papercolor-theme'
-Plug 'benekastah/neomake'
-Plug 'ervandew/supertab'
-Plug 'godlygeek/tabular'   , { 'on': 'Tabularize' }
-Plug 'https://github.com/cohama/lexima.vim'
-Plug 'https://github.com/derekwyatt/vim-scala'
-Plug 'kien/ctrlp.vim'
-Plug 'kshenoy/vim-signature'
-Plug 'luochen1990/rainbow'
-Plug 'majutsushi/tagbar'   , { 'on': 'TagbarToggle' }
-Plug 'mechatroner/rainbow_csv'
-Plug 'metakirby5/codi.vim'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'vim-ruby/vim-ruby'
-Plug 'vim-scripts/SearchComplete'
-Plug 'vim-scripts/a.vim'
-Plug 'vim-scripts/argtextobj.vim'
-Plug 'vim-scripts/camelcasemotion'
-call plug#end()
+command PackUpdate call minpac#update()
+command PackClean call minpac#clean()
 
 colorscheme PaperColor
 set background=dark
 
+" neovim
+set clipboard+=unnamedplus
+
 " rainbow
-let g:rainbow_active      = 1
+let g:rainbow_active = 1
 
 " Use the same symbols as TextMate for tabstops and EOLs<Paste>
 set listchars=tab:▸\ ,eol:¬
 
 " Improve the display of wrapped lines
 set showbreak=↪
-
-let g:codi#interpreters = {
-                   \ 'R': {
-                       \ 'bin': 'R',
-                       \ 'prompt': '^> ',
-                       \ },
-                   \ }
