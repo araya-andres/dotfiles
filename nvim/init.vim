@@ -36,12 +36,21 @@ endfunction
 nnoremap <silent> <BS> :nohlsearch<CR>
 nnoremap <silent> <F5> :call DeleteTrailingWhitespace()<CR>
 nnoremap <silent> <leader>l :set list!<CR>
+nnoremap <C-p> :<C-u>FZF<CR>
+nnoremap <M-h> <c-w>h
+nnoremap <M-j> <c-w>j
+nnoremap <M-k> <c-w>k
+nnoremap <M-l> <c-w>l
+tnoremap <M-h> <c-\><c-n><c-w>h
+tnoremap <M-j> <c-\><c-n><c-w>j
+tnoremap <M-k> <c-\><c-n><c-w>k
+tnoremap <M-l> <c-\><c-n><c-w>l
 
 packadd minpac
 call minpac#init()
 
+call minpac#add('NLKNguyen/papercolor-theme')
 call minpac#add('airblade/vim-gitgutter')
-call minpac#add('araya-andres/papercolor-theme')
 call minpac#add('benekastah/neomake')
 call minpac#add('ervandew/supertab')
 call minpac#add('godlygeek/tabular', {'type': 'opt'})
@@ -50,11 +59,14 @@ call minpac#add('junegunn/fzf')
 call minpac#add('luochen1990/rainbow')
 call minpac#add('majutsushi/tagbar', {'type': 'opt'})
 call minpac#add('mechatroner/rainbow_csv')
+call minpac#add('mhinz/vim-grepper')
+call minpac#add('octol/vim-cpp-enhanced-highlight')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
+call minpac#add('vim-scripts/a.vim')
 
 command PackUpdate call minpac#update()
 command PackClean call minpac#clean()
@@ -66,10 +78,22 @@ set background=dark
 set clipboard+=unnamedplus
 
 " rainbow
-let g:rainbow_active = 1
+let g:rainbow_active=1
 
 " Use the same symbols as TextMate for tabstops and EOLs<Paste>
 set listchars=tab:▸\ ,eol:¬
 
 " Improve the display of wrapped lines
 set showbreak=↪
+
+let g:grepper={}
+let g:grepper.tools=['rg']
+
+" Search for the current word
+nnoremap <Leader>* :Grepper -cword -noprompt<CR>
+
+" Search for the current selection
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
+
+let &path.="include"
