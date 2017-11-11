@@ -35,27 +35,4 @@ function! CreateEmptyClass()
     let b:lexima_disabled = 0
 endfunction
 
-function! CreateEmptyCPlusPlusFile()
-    let b:lexima_disabled = 1
-    0 put =expand('%:t:r')
-    normal Di#include ".h"
-    normal Bpjo::
-    normal p^PA()
-    normal o{
-    normal o}
-    normal {yGP}jwwi~
-    normal 3k
-    let b:lexima_disabled = 0
-endfunction
-
-function! CreateConstructor()
-    normal yPgvJ$x^
-    silent s/;/,/g
-    normal D
-    -1 put =expand('%:t:r')
-    normal A()
-    normal P
-endfunction
-
 autocmd BufNewFile *.h,*.hpp call CreateEmptyClass()
-autocmd BufNewFile *.cc,*.cpp call CreateEmptyCPlusPlusFile()
