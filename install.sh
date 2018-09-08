@@ -23,3 +23,5 @@ mkdir .vim_undo_dir
 mkdir .config
 cd .config
 ln -s $PATH_TO_CONFIG_FILES/nvim
+cd $PATH_TO_CONFIG_FILES/nvim/pack/minpac/opt
+git submodule update --init --recursive
