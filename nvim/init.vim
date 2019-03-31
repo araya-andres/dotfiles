@@ -49,33 +49,45 @@ tnoremap <M-l> <c-\><c-n><c-w>l
 packadd minpac
 call minpac#init()
 
-call minpac#add('NLKNguyen/papercolor-theme')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('alvan/vim-closetag')
-call minpac#add('benekastah/neomake')
+call minpac#add('cohama/lexima.vim')
 call minpac#add('ervandew/supertab')
 call minpac#add('godlygeek/tabular', {'type': 'opt'})
-call minpac#add('https://github.com/cohama/lexima.vim')
 call minpac#add('junegunn/fzf')
 call minpac#add('luochen1990/rainbow')
-call minpac#add('majutsushi/tagbar', {'type': 'opt'})
-call minpac#add('mechatroner/rainbow_csv')
 call minpac#add('mhinz/vim-grepper')
-call minpac#add('mxw/vim-jsx')
-call minpac#add('octol/vim-cpp-enhanced-highlight')
-call minpac#add('pangloss/vim-javascript')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
+call minpac#add('benekastah/neomake')
+
+" C/C++
+call minpac#add('majutsushi/tagbar', {'type': 'opt'})
+call minpac#add('octol/vim-cpp-enhanced-highlight')
 call minpac#add('vim-scripts/a.vim')
+
+" CSV
+call minpac#add('mechatroner/rainbow_csv')
+
+" Javascript
+call minpac#add('ap/vim-css-color')
+call minpac#add('mxw/vim-jsx')
+call minpac#add('pangloss/vim-javascript')
+
+" Color schemes
+call minpac#add('NLKNguyen/papercolor-theme')
+call minpac#add('ajh17/spacegray.vim')
+call minpac#add('cocopon/iceberg.vim')
+call minpac#add('dikiaap/minimalist')
+call minpac#add('henrynewcomer/vim-theme-papaya')
 
 command PackUpdate call minpac#update()
 command PackClean call minpac#clean()
 
-colorscheme PaperColor
-set background=dark
+colorscheme minimalist
 
 " neovim
 set clipboard+=unnamedplus
