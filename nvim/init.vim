@@ -28,7 +28,7 @@ end
 function! DeleteTrailingWhitespace()
     normal ma
     let _s=@/
-    %s/\s\+$//
+    %s/\s\+$//e
     let @/=_s
     normal `a
 endfunction
