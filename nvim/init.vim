@@ -19,6 +19,9 @@ set expandtab shiftwidth=4 tabstop=4
 
 set smartcase
 
+set nobackup
+set noswapfile
+
 " Persistent undo
 if has('persistent_undo')
     set undodir=$HOME/.vim_undo_dir
@@ -52,7 +55,6 @@ call minpac#init()
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('alvan/vim-closetag')
 call minpac#add('cohama/lexima.vim')
-call minpac#add('ervandew/supertab')
 call minpac#add('godlygeek/tabular', {'type': 'opt'})
 call minpac#add('junegunn/fzf')
 call minpac#add('luochen1990/rainbow')
@@ -68,6 +70,8 @@ call minpac#add('benekastah/neomake')
 call minpac#add('majutsushi/tagbar', {'type': 'opt'})
 call minpac#add('octol/vim-cpp-enhanced-highlight')
 call minpac#add('vim-scripts/a.vim')
+call minpac#add('bfrg/vim-cpp-modern')
+call minpac#add('Shougo/deoplete.nvim')
 
 " CSV
 call minpac#add('mechatroner/rainbow_csv')
@@ -95,6 +99,10 @@ set clipboard+=unnamedplus
 " rainbow
 let g:rainbow_active=1
 
+" deoplete
+let g:deoplete#enable_at_startup = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
 " Use the same symbols as TextMate for tabstops and EOLs<Paste>
 set listchars=tab:▸\ ,eol:¬
 
@@ -102,7 +110,7 @@ set listchars=tab:▸\ ,eol:¬
 set showbreak=↪
 
 let g:grepper={}
-let g:grepper.tools=['rg']
+let g:grepper.tools=['git', 'grep']
 
 " Search for the current word
 nnoremap <Leader>* :Grepper -cword -noprompt<CR>
