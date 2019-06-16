@@ -88,6 +88,10 @@ call minpac#add('cocopon/iceberg.vim')
 call minpac#add('dikiaap/minimalist')
 call minpac#add('henrynewcomer/vim-theme-papaya')
 
+" Python
+call minpac#add('nvie/vim-flake8')
+call minpac#add('klen/python-mode')
+
 command PackUpdate call minpac#update()
 command PackClean call minpac#clean()
 
