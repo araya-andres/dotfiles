@@ -13,6 +13,7 @@ export LC_ALL=en_US.UTF-8
 export TERM=screen-256color
 export PS1='\W $ '
 export VIMCONFIG=/Users/andresarayarojas/.config/nvim
+export PYTHONSTARTUP=~/.pythonrc
 
 set -o vi
 bind -m vi-insert "\C-l":clear-screen

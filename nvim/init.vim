@@ -36,6 +36,12 @@ function! DeleteTrailingWhitespace()
     normal `a
 endfunction
 
+function! Grep()
+  vimgrep <cword> **/*
+  execute "normal \<c-o>"
+  cw
+endfunction
+
 nnoremap <silent> <BS> :nohlsearch<CR>
 nnoremap <silent> <F5> :call DeleteTrailingWhitespace()<CR>
 nnoremap <silent> <leader>l :set list!<CR>
@@ -80,6 +86,14 @@ call minpac#add('mechatroner/rainbow_csv')
 call minpac#add('ap/vim-css-color')
 call minpac#add('mxw/vim-jsx')
 call minpac#add('pangloss/vim-javascript')
+
+" Python
+call minpac#add('nvie/vim-flake8')
+call minpac#add('python-mode/python-mode')
+
+" Typescript
+call minpac#add('leafgarland/typescript-vim')
+call minpac#add('HerringtonDarkholme/yats.vim')
 
 " Color schemes
 call minpac#add('NLKNguyen/papercolor-theme')
