@@ -1,19 +1,20 @@
-alias ls='exa'
 alias ll='ls -l'
-alias ql='qlmanage -p "$@" 1>/dev/null 2>&1'
+alias ql='qlmanage -p "$@" 1>/dev/null 2>&1' # Quick Look
 alias ctags="`brew --prefix`/bin/ctags"
+alias vi=nvim
+alias python=python3
+alias pip=pip3
 
-type nvim >/dev/null 2>&1 && alias vi=nvim || alias vi=vim
-export HISTCONTROL=ignoreboth:erasedups
-export FONTCONFIG_PATH=/opt/X11/lib/X11/fontconfig
 export EDITOR="nvim -c 'set tw=0'"
-export LANGUAGE=en_US.UTF-8
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export HISTCONTROL=ignoreboth:erasedups
 export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export TERM=screen-256color
 export PS1='\W $ '
-export VIMCONFIG=/Users/andresarayarojas/.config/nvim
 export PYTHONSTARTUP=~/.pythonrc
+export TERM=screen-256color
+export VIMCONFIG=/Users/andresarayarojas/.config/nvim
 
 set -o vi
 bind -m vi-insert "\C-l":clear-screen
