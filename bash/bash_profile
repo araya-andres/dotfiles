@@ -1,9 +1,6 @@
 alias ll='ls -l'
 alias ql='qlmanage -p "$@" 1>/dev/null 2>&1' # Quick Look
-alias ctags="`brew --prefix`/bin/ctags"
 alias vi=nvim
-alias python=python3
-alias pip=pip3
 
 export EDITOR="nvim -c 'set tw=0'"
 export FZF_DEFAULT_COMMAND='ag -g ""'
@@ -11,12 +8,10 @@ export HISTCONTROL=ignoreboth:erasedups
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export PS1='\W $ '
 export PYTHONSTARTUP=~/.pythonrc
 export TERM=screen-256color
 export VIMCONFIG=/Users/andresarayarojas/.config/nvim
 
 set -o vi
-bind -m vi-insert "\C-l":clear-screen
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
