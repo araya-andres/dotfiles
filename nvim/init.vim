@@ -4,6 +4,7 @@ set ruler
 
 " line options
 set cursorline
+highlight CursorLine cterm=None ctermbg=0
 set nowrap
 set number
 set relativenumber
@@ -34,12 +35,6 @@ function! DeleteTrailingWhitespace()
     %s/\s\+$//e
     let @/=_s
     normal `a
-endfunction
-
-function! Grep()
-  vimgrep <cword> **/*
-  execute "normal \<c-o>"
-  cw
 endfunction
 
 nnoremap <silent> <BS> :nohlsearch<CR>
@@ -77,7 +72,6 @@ call minpac#add('majutsushi/tagbar', {'type': 'opt'})
 call minpac#add('octol/vim-cpp-enhanced-highlight')
 call minpac#add('vim-scripts/a.vim')
 call minpac#add('bfrg/vim-cpp-modern')
-call minpac#add('Shougo/deoplete.nvim')
 
 " CSV
 call minpac#add('mechatroner/rainbow_csv')
@@ -88,28 +82,21 @@ call minpac#add('mxw/vim-jsx')
 call minpac#add('pangloss/vim-javascript')
 
 " Python
+call minpac#add('davidhalter/jedi-vim')
 call minpac#add('nvie/vim-flake8')
 call minpac#add('python-mode/python-mode')
+call minpac#add('vim-syntastic/syntastic')
 
 " Typescript
 call minpac#add('leafgarland/typescript-vim')
-call minpac#add('HerringtonDarkholme/yats.vim')
-
-" Color schemes
-call minpac#add('NLKNguyen/papercolor-theme')
-call minpac#add('ajh17/spacegray.vim')
-call minpac#add('cocopon/iceberg.vim')
-call minpac#add('dikiaap/minimalist')
-call minpac#add('henrynewcomer/vim-theme-papaya')
 
 " Python
 call minpac#add('nvie/vim-flake8')
 call minpac#add('klen/python-mode')
+call minpac#add('davidhalter/jedi-vim')
 
 command PackUpdate call minpac#update()
 command PackClean call minpac#clean()
-
-colorscheme minimalist
 
 " neovim
 set clipboard+=unnamedplus
@@ -117,24 +104,13 @@ set clipboard+=unnamedplus
 " rainbow
 let g:rainbow_active=1
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
 " Use the same symbols as TextMate for tabstops and EOLs<Paste>
 set listchars=tab:▸\ ,eol:¬
 
 " Improve the display of wrapped lines
 set showbreak=↪
 
-let g:grepper={}
-let g:grepper.tools=['git', 'grep']
-
 " Search for the current word
-nnoremap <Leader>* :Grepper -cword -noprompt<CR>
-
-" Search for the current selection
-nmap gs <plug>(GrepperOperator)
-xmap gs <plug>(GrepperOperator)
+nnoremap <Leader>* :GrepperGit <C-R><C-W><CR>
 
 let &path.="include"
