@@ -8,10 +8,11 @@ export HISTCONTROL=ignoreboth:erasedups
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PYTHONSTARTUP=~/.pythonrc
 export TERM=screen-256color
 export VIMCONFIG=/Users/andresarayarojas/.config/nvim
 
 set -o vi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -z "$ZSH_NAME" ] && [ -f ~/.fzf.bash ] && source ~/.fzf.bash
