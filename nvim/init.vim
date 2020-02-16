@@ -53,47 +53,23 @@ tnoremap <M-l> <c-\><c-n><c-w>l
 packadd minpac
 call minpac#init()
 
-call minpac#add('airblade/vim-gitgutter')
-call minpac#add('alvan/vim-closetag')
-call minpac#add('cohama/lexima.vim')
-call minpac#add('godlygeek/tabular', {'type': 'opt'})
-call minpac#add('junegunn/fzf')
+call minpac#add('airblade/vim-gitgutter')             " Shows a git diff in the 'gutter'
+call minpac#add('alvan/vim-closetag')                 " Auto close (X)HTML tags
+call minpac#add('cohama/lexima.vim')                  " Automatically close pairs
+call minpac#add('godlygeek/tabular', {'type': 'opt'}) " Line up text
+call minpac#add('junegunn/fzf')                       " Fuzzy finder
 call minpac#add('luochen1990/rainbow')
-call minpac#add('mhinz/vim-grepper')
-call minpac#add('tpope/vim-commentary')
-call minpac#add('tpope/vim-fugitive')
-call minpac#add('tpope/vim-repeat')
+call minpac#add('mhinz/vim-grepper')                  " Grep wrapper
+call minpac#add('tpope/vim-commentary')               " Comment stuff out
+call minpac#add('tpope/vim-fugitive')                 " Git wrapper
+call minpac#add('tpope/vim-repeat')                   " Remaps . (dot)
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
-call minpac#add('benekastah/neomake')
+call minpac#add('mechatroner/rainbow_csv')            " Highlight CSV
 
-" C/C++
-call minpac#add('majutsushi/tagbar', {'type': 'opt'})
-call minpac#add('octol/vim-cpp-enhanced-highlight')
-call minpac#add('vim-scripts/a.vim')
-call minpac#add('bfrg/vim-cpp-modern')
-
-" CSV
-call minpac#add('mechatroner/rainbow_csv')
-
-" Javascript
-call minpac#add('ap/vim-css-color')
-call minpac#add('mxw/vim-jsx')
-call minpac#add('pangloss/vim-javascript')
-
-" Python
-call minpac#add('davidhalter/jedi-vim')
-call minpac#add('nvie/vim-flake8')
-call minpac#add('python-mode/python-mode')
-call minpac#add('vim-syntastic/syntastic')
-
-" Typescript
-call minpac#add('leafgarland/typescript-vim')
-
-" Python
-call minpac#add('nvie/vim-flake8')
-call minpac#add('klen/python-mode')
-call minpac#add('davidhalter/jedi-vim')
+" LSP client and autocomplete
+call minpac#add('autozimu/LanguageClient-neovim', {'do': './install.sh'})
+call minpac#add('Shougo/deoplete.nvim')
 
 command PackUpdate call minpac#update()
 command PackClean call minpac#clean()
@@ -114,3 +90,18 @@ set showbreak=↪
 nnoremap <Leader>* :GrepperGit <C-R><C-W><CR>
 
 let &path.="include"
+
+augroup python
+    autocmd!
+    autocmd FileType python setlocal noet ts=4
+augroup end
+
+let g:LanguageClient_serverCommands = {
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'cpp': ['clangd'],
+    \ 'c': ['clangd'],
+    \ }
+
+let g:deoplete#enable_at_startup = 1
+
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"

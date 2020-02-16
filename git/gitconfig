@@ -12,5 +12,6 @@
 [alias]
 	s = status -s
 	lg = log --oneline --decorate --graph
+	co = checkout
 [push]
 	default = simple

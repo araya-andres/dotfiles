@@ -3,8 +3,8 @@ PATH_TO_CONFIG_FILES=${1-$PWD}
 cd
 
 # bash
-BASH_PROFILE=$PATH_TO_CONFIG_FILES/bash/bash_profile
-echo "[ -f $BASH_PROFILE ] && source $BASH_PROFILE" >> ~/.bash_profile
+rm .zshrc
+ln -s $PATH_TO_CONFIG_FILES/zsh/zshrc .zshrc
 
 # git
 rm .gitconfig
