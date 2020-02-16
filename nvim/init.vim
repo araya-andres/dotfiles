@@ -69,7 +69,8 @@ call minpac#add('mechatroner/rainbow_csv')            " Highlight CSV
 
 " LSP client and autocomplete
 call minpac#add('autozimu/LanguageClient-neovim', {'do': './install.sh'})
-call minpac#add('Shougo/deoplete.nvim')
+call minpac#add('Shougo/deoplete.nvim')               " Autocomplete
+call minpac#add('HerringtonDarkholme/yats.vim')       " Typescript
 
 command PackUpdate call minpac#update()
 command PackClean call minpac#clean()
@@ -97,7 +98,9 @@ augroup python
 augroup end
 
 let g:LanguageClient_serverCommands = {
-    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'javascript': ['typescript-language-server', '--stdio'],
+    \ 'typescript': ['typescript-language-server', '--stdio'],
+    \ 'python': ['pyls'],
     \ 'cpp': ['clangd'],
     \ 'c': ['clangd'],
     \ }
