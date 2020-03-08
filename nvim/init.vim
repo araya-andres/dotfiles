@@ -15,6 +15,16 @@ match ErrorMsg /\s\s*$/
 set splitbelow
 set splitright
 
+" highlight active window
+highlight StatusLineNC cterm=bold ctermfg=white ctermbg=darkgray
+
+" show cursorline only in active window
+augroup CursorLineOnlyInActiveWindow
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup END
+
 " tap options
 set expandtab shiftwidth=4 tabstop=4
 
