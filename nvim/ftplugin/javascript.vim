@@ -1,6 +1,5 @@
 set makeprg=jshint\ %
 set errorformat=%f:\ line\ %l\,\ col\ %c\,\ %m
-autocmd BufWritePost *.js Neomake
 
 function! MakeFunctionalComponent()
   normal iimport React from 'react'

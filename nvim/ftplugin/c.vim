@@ -1,2 +1,2 @@
 nnoremap <buffer> <silent> <F6> :!./%:t:r<CR>
-autocmd BufWritePost *.c,*.cc,*.cpp,*.h,*.hpp Neomake!
+" autocmd BufWritePost *.c,*.cc,*.cpp,*.h,*.hpp make
