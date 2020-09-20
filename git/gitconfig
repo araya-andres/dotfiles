@@ -5,6 +5,7 @@
 [core]
 	autocrlf = input
 	editor = nvim
+	pager = less -F -X
 [pull]
 	rebase = true
 [rerere]
@@ -13,5 +14,6 @@
 	s = status -s
 	lg = log --oneline --decorate --graph
 	co = checkout
+    branchm = "!git branch -m $2 $3 && git push $1 :$2 $3 -u #"
 [push]
 	default = simple
