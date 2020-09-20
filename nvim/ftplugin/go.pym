@@ -1,0 +1,2 @@
+nnoremap <buffer> <silent> <F6> :GoRun<CR>
+

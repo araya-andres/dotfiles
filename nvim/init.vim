@@ -49,6 +49,7 @@ endfunction
 
 nnoremap <silent> <BS> :nohlsearch<CR>
 nnoremap <silent> <F5> :call DeleteTrailingWhitespace()<CR>
+nnoremap <silent> <F12> :exe ':silent !open %'<CR>
 nnoremap <silent> <leader>l :set list!<CR>
 nnoremap <C-p> :<C-u>FZF<CR>
 nnoremap <M-h> <c-w>h
@@ -69,18 +70,21 @@ call minpac#add('cohama/lexima.vim')                  " Automatically close pair
 call minpac#add('godlygeek/tabular', {'type': 'opt'}) " Line up text
 call minpac#add('junegunn/fzf')                       " Fuzzy finder
 call minpac#add('luochen1990/rainbow')
+call minpac#add('mechatroner/rainbow_csv')            " Highlight CSV
 call minpac#add('mhinz/vim-grepper')                  " Grep wrapper
 call minpac#add('tpope/vim-commentary')               " Comment stuff out
 call minpac#add('tpope/vim-fugitive')                 " Git wrapper
 call minpac#add('tpope/vim-repeat')                   " Remaps . (dot)
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
-call minpac#add('mechatroner/rainbow_csv')            " Highlight CSV
+call minpac#add('fatih/vim-go')
+call minpac#add('deoplete-plugins/deoplete-jedi')
 
 " LSP client and autocomplete
 call minpac#add('autozimu/LanguageClient-neovim', {'do': './install.sh'})
 call minpac#add('Shougo/deoplete.nvim')               " Autocomplete
 call minpac#add('HerringtonDarkholme/yats.vim')       " Typescript
+call minpac#add('pangloss/vim-javascript')
 
 command PackUpdate call minpac#update()
 command PackClean call minpac#clean()
@@ -113,6 +117,7 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['pyls'],
     \ 'cpp': ['clangd'],
     \ 'c': ['clangd'],
+    \ 'go': ['gopls'],
     \ }
 
 let g:deoplete#enable_at_startup = 1
