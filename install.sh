@@ -1,23 +1,19 @@
-#!/bin/bash
-PATH_TO_CONFIG_FILES=${1-$PWD}
-cd
+xcode-select --install
 
-# bash
-rm .zshrc
-ln -s $PATH_TO_CONFIG_FILES/zsh/zshrc .zshrc
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# git
-rm .gitconfig
-ln -s $PATH_TO_CONFIG_FILES/git/gitconfig .gitconfig
+# pyenv prereq
 
-# tmux
-rm .tmux.conf
-ln -s $PATH_TO_CONFIG_FILES/tmux/tmux.conf .tmux.conf
+brew install openssl readline sqlite3 xz zlib
 
-# nvim
-mkdir .vim_undo_dir
-mkdir .config
-cd .config
-ln -s $PATH_TO_CONFIG_FILES/nvim
-cd $PATH_TO_CONFIG_FILES/nvim/pack/minpac/opt
-git submodule update --init --recursive
+brew install neovim \
+             pyenv \
+             tmux \
+             tree \
+             wget
+
+brew install --cask spectacle \
+                    virtualbox \
+                    visual-studio-code \
+                    vlc \
+                    whatsapp
