@@ -10,10 +10,6 @@ ln -s $PATH_TO_CONFIG_FILES/zsh/zshrc .zshrc
 rm .gitconfig
 ln -s $PATH_TO_CONFIG_FILES/git/gitconfig .gitconfig
 
-# octave
-rm .octaverc
-ln -s $PATH_TO_CONFIG_FILES/octave/octaverc .octaverc
-
 # tmux
 rm .tmux.conf
 ln -s $PATH_TO_CONFIG_FILES/tmux/tmux.conf .tmux.conf
