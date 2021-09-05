@@ -15,6 +15,8 @@ match ErrorMsg /\s\s*$/
 set splitbelow
 set splitright
 
+set rtp+=/usr/local/opt/fzf
+
 " highlight active window
 highlight StatusLineNC cterm=bold ctermfg=white ctermbg=darkgray
 
@@ -78,11 +80,9 @@ call minpac#add('tpope/vim-repeat')                   " Remaps . (dot)
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('fatih/vim-go')
-call minpac#add('deoplete-plugins/deoplete-jedi')
 
 " LSP client and autocomplete
 call minpac#add('autozimu/LanguageClient-neovim', {'do': './install.sh'})
-call minpac#add('Shougo/deoplete.nvim')               " Autocomplete
 call minpac#add('HerringtonDarkholme/yats.vim')       " Typescript
 call minpac#add('pangloss/vim-javascript')
 
@@ -120,6 +120,8 @@ let g:LanguageClient_serverCommands = {
     \ 'go': ['gopls'],
     \ }
 
-let g:deoplete#enable_at_startup = 1
-
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+let g:loaded_node_provider = 0
+let g:loaded_perl_provider = 0
+let g:loaded_python_provider = 0
+let g:loaded_ruby_provider = 0
+let g:python3_host_prog = '/Users/andresarayarojas/.pyenv/versions/3.9.7/bin/python'
