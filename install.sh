@@ -8,7 +8,8 @@ xcode-select --install
 
 brew install openssl readline sqlite3 xz zlib
 
-brew install neovim \
+brew install fzf \
+             neovim \
              pyenv \
              tmux \
              tree \
