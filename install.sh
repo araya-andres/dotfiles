@@ -12,6 +12,7 @@ brew install fzf \
              neovim \
              pyenv \
              tmux \
+             tig \
              tree \
              wget
 
