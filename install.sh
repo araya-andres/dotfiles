@@ -14,8 +14,11 @@ brew install neovim \
              tree \
              wget
 
-brew install --cask iterm2 \
+brew install --cask epic-games \
+                    gog-galaxy \
+                    iterm2 \
                     spectacle \
+                    steam \
                     virtualbox \
                     visual-studio-code \
                     vlc \
