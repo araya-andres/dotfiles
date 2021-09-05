@@ -3,15 +3,15 @@ PATH_TO_CONFIG_FILES=${1-$PWD}
 cd
 
 # bash
-rm .zshrc
+rm .zshrc 2>/dev/null
 ln -s $PATH_TO_CONFIG_FILES/zsh/zshrc .zshrc
 
 # git
-rm .gitconfig
+rm .gitconfig 2>/dev/null
 ln -s $PATH_TO_CONFIG_FILES/git/gitconfig .gitconfig
 
 # tmux
-rm .tmux.conf
+rm .tmux.conf 2>/dev/null
 ln -s $PATH_TO_CONFIG_FILES/tmux/tmux.conf .tmux.conf
 
 # nvim

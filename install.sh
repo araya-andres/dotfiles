@@ -1,3 +1,5 @@
+#!/bin/bash
+
 xcode-select --install
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -12,7 +14,8 @@ brew install neovim \
              tree \
              wget
 
-brew install --cask spectacle \
+brew install --cask iterm2 \
+                    spectacle \
                     virtualbox \
                     visual-studio-code \
                     vlc \
