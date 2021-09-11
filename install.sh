@@ -18,7 +18,8 @@ brew install docker \
              tree \
              wget
 
-brew install --cask epic-games \
+brew install --cask discord \
+                    epic-games \
                     gog-galaxy \
                     iterm2 \
                     spectacle \
