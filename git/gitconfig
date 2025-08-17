@@ -1,19 +1,17 @@
-# This is Git's per-user configuration file.
-[user]
-	name = Andres Araya
-	email = araya.andres@gmail.com
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	lg = log --oneline --decorate --graph
 [core]
 	autocrlf = input
 	editor = nvim
 	pager = less -F -X
 [pull]
 	rebase = true
-[rerere]
-	enabled = true
-[alias]
-	s = status -s
-	lg = log --oneline --decorate --graph
-	co = checkout
-    branchm = "!git branch -m $2 $3 && git push $1 :$2 $3 -u #"
-[push]
-	default = simple
+[init]
+	defaultBranch = master
+[user]
+	name = Andres Araya
+	email = araya.andres@gmail.com
