@@ -59,6 +59,7 @@ git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugin
 cd ~/.config/nvim/lua/plugins
 ln -s $PATH_TO_CONFIG_FILES/lazyvim/lua/plugins/blink.lua
 ln -s $PATH_TO_CONFIG_FILES/lazyvim/lua/plugins/disabled.lua
+ln -s $PATH_TO_CONFIG_FILES/lazyvim/lua/plugins/lualine.lua
 cd ~/.config/nvim/lua/config
 rm keymaps.lua options.lua 2>/dev/null
 ln -s $PATH_TO_CONFIG_FILES/lazyvim/lua/config/keymaps.lua
