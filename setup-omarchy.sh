@@ -60,6 +60,7 @@ cd ~/.config/nvim/lua/plugins
 ln -s $PATH_TO_CONFIG_FILES/lazyvim/lua/plugins/blink.lua
 ln -s $PATH_TO_CONFIG_FILES/lazyvim/lua/plugins/disabled.lua
 ln -s $PATH_TO_CONFIG_FILES/lazyvim/lua/plugins/lualine.lua
+ln -s $PATH_TO_CONFIG_FILES/lazyvim/lua/plugins/nvim-tmux-navigator.lua
 cd ~/.config/nvim/lua/config
 rm keymaps.lua options.lua 2>/dev/null
 ln -s $PATH_TO_CONFIG_FILES/lazyvim/lua/config/keymaps.lua
