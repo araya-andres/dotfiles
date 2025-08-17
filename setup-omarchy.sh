@@ -63,3 +63,9 @@ cd ~/.config/nvim/lua/config
 rm keymaps.lua options.lua 2>/dev/null
 ln -s $PATH_TO_CONFIG_FILES/lazyvim/lua/config/keymaps.lua
 ln -s $PATH_TO_CONFIG_FILES/lazyvim/lua/config/options.lua
+
+cd ~/.config/hypr
+mv bindings.conf bindings.conf.bak
+mv monitors.conf monitors.conf.bak
+ln -s $PATH_TO_CONFIG_FILES/hypr/bindings.conf
+ln -s $PATH_TO_CONFIG_FILES/hypr/monitors.conf
