@@ -1,4 +1,4 @@
-yes | sudo pacman -S \
+yes | pacman -S \
     brave-bin \
     cmake \
     interception-caps2esc \

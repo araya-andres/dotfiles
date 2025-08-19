@@ -1,11 +1,12 @@
 # Remap Caps Lock to Escape
 # https://ejmastnak.com/tutorials/arch/caps2esc/
+# Note: must be run as sudo
 
 FILE="/etc/udevmon.yaml"
 if [-f $FILE]; the
-    sudo cp $FILE $FILE.bak
+    cp $FILE $FILE.bak
 fi
-sudo cat >$FILE <<EOF
+cat >$FILE <<EOF
 - JOB: "intercept -g \$DEVNODE | caps2esc | uinput -d \$DEVNODE"
   DEVICE:
     EVENTS:
@@ -14,9 +15,9 @@ EOF
 
 FILE="/etc/systemd/system/udevmon.service"
 if [-f $FILE]; the
-    sudo cp $FILE $FILE.bak
+    cp $FILE $FILE.bak
 fi
-sudo cat >$FILE <<EOF
+cat >$FILE <<EOF
 [Unit]
 Description=udevmon
 Wants=systemd-udev-settle.service
@@ -30,7 +31,7 @@ WantedBy=multi-user.target
 EOF
 
 # Enable and start the `udevmon` service
-sudo systemctl enable --now udevmon.service
+systemctl enable --now udevmon.service
 
 # Optionally verify the `udevmon` service is active and running
 systemctl status udevmon
