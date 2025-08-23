@@ -5,4 +5,5 @@ yes | pacman -S \
     localsend \
     tmux \
     tree \
+    ttf-sourcecodepro-nerd \
     vcpkg
