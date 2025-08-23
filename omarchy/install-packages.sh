@@ -4,4 +4,5 @@ yes | pacman -S \
     interception-caps2esc \
     localsend \
     tmux \
-    tree
+    tree \
+    vcpkg
