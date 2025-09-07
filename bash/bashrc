@@ -5,6 +5,9 @@ source ~/.local/share/omarchy/default/bash/rc
 # Add your own exports, aliases, and functions here.
 #
 alias vi=nvim
+if which bat 2>&1 >/dev/null; then
+  alias cat='bat --style=plain'
+fi
 
 # Use VSCode instead of neovim as your default editor
 # export EDITOR="code"
