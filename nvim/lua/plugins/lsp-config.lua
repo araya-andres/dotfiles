@@ -13,7 +13,6 @@ return {
           "clangd",
           "cmake",
           "lua_ls",
-          "rust_analyzer",
         }
       })
     end,
@@ -21,18 +20,35 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
-      lspconfig.clangd.setup({})
-      lspconfig.cmake.setup({
+      lspconfig.clangd.setup({
+        capabilities = capabilities,
         cmd = {
           "clangd",
           "--background-index",
           "--clang-tidy",
           "--header-insertion=iwyu",
-        }
+        },
       })
-      lspconfig.lua_ls.setup({})
-      lspconfig.rust_analyser.setup({})
+      lspconfig.cmake.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+      })
+    end,
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    config = function()
+      local null_ls = require("null-ls")
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.formatting.stylua,
+          null_ls.builtins.completion.spell,
+        },
+      })
     end,
   },
 }
