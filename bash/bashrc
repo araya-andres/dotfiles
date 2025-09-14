@@ -1,19 +1,7 @@
-# All the default Omarchy aliases and functions
-# (don't mess with these directly, just overwrite them here!)
-source ~/.local/share/omarchy/default/bash/rc
-
-# Add your own exports, aliases, and functions here.
-#
 alias vi=nvim
 if which bat 2>&1 >/dev/null; then
   alias cat='bat --style=plain'
 fi
-
-# Use VSCode instead of neovim as your default editor
-# export EDITOR="code"
-#
-# Set a custom prompt with the directory revealed (alternatively use https://starship.rs)
-# PS1="\W \[\e]0;\w\a\]$PS1"
 
 set -o vi
 bind -m vi-command 'Control-l: clear-screen'
