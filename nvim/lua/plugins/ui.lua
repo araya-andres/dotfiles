@@ -23,4 +23,10 @@ return {
 	{
 		"HiPhish/rainbow-delimiters.nvim",
 	},
+	{
+		"goolord/alpha-nvim",
+		config = function()
+			require("alpha").setup(require("alpha.themes.dashboard").config)
+		end,
+	},
 }
