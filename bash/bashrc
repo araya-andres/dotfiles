@@ -9,3 +9,7 @@ bind -m vi-insert 'Control-l: clear-screen'
 
 export MANPAGER='nvim +Man!'
 export VCPKG_ROOT=$HOME/.local/share/vcpkg
+
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
+
