@@ -5,9 +5,10 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 vim.cmd("set nowrap")
+vim.cmd("set showbreak=↪")
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "cpp",
-    callback = function (event)
-       vim.keymap.set("n", "<leader><Space>", ":ClangdSwitchSourceHeader\n");
-    end,
+	pattern = "cpp",
+	callback = function(event)
+		vim.keymap.set("n", "<leader><Space>", ":ClangdSwitchSourceHeader\n")
+	end,
 })
