@@ -20,4 +20,7 @@ return {
 		event = "VeryLazy",
 		opts = {},
 	},
+	{
+		"HiPhish/rainbow-delimiters.nvim",
+	},
 }
