@@ -17,7 +17,8 @@ vim.cmd("set undofile")
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "cpp",
 	callback = function(event)
-		vim.keymap.set("n", "<leader><Space>", ":ClangdSwitchSourceHeader\n")
-		vim.keymap.set("n", "<F7>", ":!cmake --build build\n")
+		vim.cmd('let &makeprg = "cd build && make"')
+		vim.keymap.set("n", "<leader><Space>", ":ClangdSwitchSourceHeader<Cr>")
+		vim.keymap.set("n", "<leader>b", ":make<Cr>")
 	end,
 })
