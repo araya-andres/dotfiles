@@ -1,5 +1,8 @@
-vim.keymap.set("n", "<F5>", require("dap").continue)
-vim.keymap.set("n", "<F9>", require("dap").toggle_breakpoint)
-vim.keymap.set("n", "<F10>", require("dap").step_over)
-vim.keymap.set("n", "<F11>", require("dap").step_into)
-vim.keymap.set("n", "<Shift-F11>", require("dap").step_out)
+local map = vim.keymap.set
+local dap = require("dap")
+
+map("n", "<F5>", dap.continue)
+map("n", "<F9>", dap.toggle_breakpoint)
+map("n", "<F10>", dap.step_over)
+map("n", "<F11>", dap.step_into)
+map("n", "<Shift-F11>", dap.step_out)
