@@ -21,8 +21,7 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local lspconfig = require("lspconfig")
-			lspconfig.clangd.setup({
+			vim.lsp.config("clangd", {
 				capabilities = capabilities,
 				cmd = {
 					"clangd",
@@ -31,10 +30,7 @@ return {
 					"--header-insertion=iwyu",
 				},
 			})
-			lspconfig.cmake.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.lua_ls.setup({
+			vim.lsp.config("make", {
 				capabilities = capabilities,
 			})
 		end,
