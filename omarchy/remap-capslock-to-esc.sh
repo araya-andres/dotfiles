@@ -3,7 +3,7 @@
 # Note: must be run as sudo
 
 FILE="/etc/udevmon.yaml"
-if [-f $FILE]; the
+if [ -f $FILE ]; then
     cp $FILE $FILE.bak
 fi
 cat >$FILE <<EOF
@@ -14,7 +14,7 @@ cat >$FILE <<EOF
 EOF
 
 FILE="/etc/systemd/system/udevmon.service"
-if [-f $FILE]; the
+if [ -f $FILE ]; then
     cp $FILE $FILE.bak
 fi
 cat >$FILE <<EOF
