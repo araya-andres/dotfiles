@@ -2,10 +2,6 @@
 PATH_TO_CONFIG_FILES=${1-$PWD}
 cd
 
-# bash
-rm .zshrc 2>/dev/null
-ln -s $PATH_TO_CONFIG_FILES/zsh/zshrc .zshrc
-
 # git
 rm .gitconfig 2>/dev/null
 ln -s $PATH_TO_CONFIG_FILES/git/gitconfig .gitconfig
